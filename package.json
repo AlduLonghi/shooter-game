@@ -1,0 +1,34 @@
+{
+  "name": "shooter-game",
+  "version": "1.0.0",
+  "description": "A game built using Phaser 3 framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-w": "jest --watch",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlduLonghi/shooter-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlduLonghi/shooter-game/issues"
+  },
+  "homepage": "https://github.com/AlduLonghi/shooter-game#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^5.10.0"
+  }
+}
