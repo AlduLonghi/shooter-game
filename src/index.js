@@ -1,11 +1,20 @@
 import 'phaser';
 
-import { SimpleScene } from './scenes/simple-scene';
+import { mainScene } from './scenes/mainScene';
 
-const gameConfig = {
-  width: 680,
-  height: 400,
-  scene: SimpleScene
+const config = {
+  type: Phaser.AUTO,
+  width: 900,
+  height: 900,
+  backgroundColor: "black",
+  physics: {
+      default: 'arcade',
+      arcade: {
+          gravity: { y: 300 },
+          debug: false
+      }
+  },
+  scene: [mainScene]
 };
 
-new Phaser.Game(gameConfig);
+new Phaser.Game(config);
