@@ -5,7 +5,7 @@ import MainScene from './scenes/mainScene';
 const config = {
   type: Phaser.AUTO,
   width: 900,
-  height: 900,
+  height: 750,
   backgroundColor: 'black',
   physics: {
     default: 'arcade',

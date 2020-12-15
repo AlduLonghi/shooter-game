@@ -19,26 +19,26 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
-    this.tileSprite = this.add.tileSprite(0, 0, 1400, 1085, 'starfield');
+    this.add.image(400, 300, 'starfield');
 
-    this.gamePlayer = this.physics.add.sprite(this.sys.canvas.width / 2, 800, 'player').setScale(0.15);
+    this.gamePlayer = this.physics.add.sprite(this.sys.canvas.width / 2, 700, 'player').setScale(0.15);
     this.gamePlayer.setCollideWorldBounds(true);
+    
 
-
+    this.addEvents();
     this.cursors = this.input.keyboard.createCursorKeys();
   }
 
   update() {
-    if (this.cursors.left.isDown) {
-      this.gamePlayer.x -= 8;
-    } else if (this.cursors.right.isDown) {
-      this.gamePlayer.x += 8;
-    } else if (this.cursors.up.isDown) {
-      this.gamePlayer.y -= 8;
-    } else if (this.cursors.down.isDown) {
-      this.gamePlayer.y += 8;
-    }
   }
+
+  addEvents() {
+    this.input.on('pointermove', pointer => {
+      this.gamePlayer.x = pointer.x;
+      this.gamePlayer.y = pointer.y;
+    })
+  }  
 }
+
 
 export default MainScene;
