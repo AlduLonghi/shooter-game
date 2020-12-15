@@ -24,17 +24,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
-          }
-        }
+            presets: ['env'],
+          },
+        },
       },
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
       'typeof CANVAS_RENDERER': JSON.stringify(true),
-      'typeof WEBGL_RENDERER': JSON.stringify(true)
-    })
-  ]
+      'typeof WEBGL_RENDERER': JSON.stringify(true),
+    }),
+  ],
 
 };
