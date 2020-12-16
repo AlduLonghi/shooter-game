@@ -5,7 +5,7 @@ import enemy3 from '../assets/enemy3.png';
 import starfield from '../assets/starfield.png';
 import laser1 from '../assets/laser-org.png';
 import LaserGroup from '../objects/laser-group';
-import {addEvents} from '../helpers/shooting';
+import { shootLaser } from '../helpers/shooting';
 import Enemies from '../entities/enemies';
 
 class MainScene extends Phaser.Scene {
@@ -30,17 +30,35 @@ class MainScene extends Phaser.Scene {
     this.gamePlayer = this.physics.add.sprite(this.sys.canvas.width / 2, 700, 'player').setScale(0.15);
     this.gamePlayer.setCollideWorldBounds(true);
     this.gamePlayer.body.setAllowGravity(false);
-
-    addEvents(this);
     
     this.enemies1 = this.physics.add.group();
     this.addEnemies1 = new Enemies(this, 'enemy1', this.enemies1);
+
+    this.enemies2 = this.physics.add.group();
+    this.addEnemies2 = new Enemies(this, 'enemy2', this.enemies2);
+
+    this.cursors = this.input.keyboard.createCursorKeys();
     
     
   }
 
   update() {
     this.tileSprite.tilePositionY -= 3;
+    if (this.cursors.left.isDown){
+      this.gamePlayer.x -= 6;
+    }
+    else if (this.cursors.right.isDown){
+      this.gamePlayer.x += 6;
+    }
+    else if (this.cursors.up.isDown){
+      this.gamePlayer.y -= 6;
+    }
+    else if (this.cursors.down.isDown){
+      this.gamePlayer.y += 6;
+    } 
+    else if (this.cursors.space.isDown) {
+     shootLaser(this);
+    }
   }
 
 }

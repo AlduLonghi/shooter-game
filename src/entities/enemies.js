@@ -5,7 +5,7 @@ class Enemies {
         }
 
         scene.time.addEvent({
-            delay: 1000,
+            delay: 500,
             callback: enemy,
             callbackScope: scene,
             loop: true
@@ -13,8 +13,8 @@ class Enemies {
     }
 
     addEnemy(imgKey, enemies) {
-        const xCoord = Math.random() * 750;
-        enemies.create(xCoord, 10, imgKey).setScale(0.1).setVelocityY(80);
+        const xCoord = Math.random() * 900;
+        enemies.create(xCoord, 10, imgKey).setScale(0.13).setVelocityY((Math.random() + 1) * 100);
     }
 }
 
