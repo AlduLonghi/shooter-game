@@ -5,12 +5,13 @@ import enemy3 from '../assets/enemy3.png';
 import starfield from '../assets/starfield.png';
 import laser1 from '../assets/laser-org.png';
 import laser2 from '../assets/laser-round-gr.png';
-import { shootLaser } from '../helpers/shooting';
+import shootLaser from '../helpers/shooting';
 import Enemies from '../entities/enemies';
 import Player from '../entities/player';
 import playerLasersCollider from '../helpers/playerlasers-collider';
 import explosion from '../assets/sndExplosion0.wav';
 import gameMusic from '../assets/gameMusic.wav';
+import gameOverCollider from '../helpers/gameover-collider';
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -56,7 +57,16 @@ class MainScene extends Phaser.Scene {
       null, this);
 
     this.physics.add.collider(this.gamePlayer,
-      this.enemyLasers);
+      this.enemyLasers,
+      gameOverCollider,
+      null,
+      this);
+
+    this.physics.add.collider(this.gamePlayer,
+      this.enemies,
+      gameOverCollider,
+      null,
+      this);
   }
 
 

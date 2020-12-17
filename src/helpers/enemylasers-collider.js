@@ -1,4 +1,0 @@
-function enemyLasersCollider(player, enemyLaser) {
-
-
-}

@@ -1,9 +1,15 @@
 import 'phaser';
 
 import MainScene from './scenes/mainScene';
+import GameOver from './scenes/gameOverScene';
+import PlayerName from './scenes/playerName';
 
 const config = {
   type: Phaser.AUTO,
+  parent: 'phaser-example',
+  dom: {
+    createContainer: true,
+  },
   width: 900,
   height: 750,
   backgroundColor: 'black',
@@ -14,7 +20,7 @@ const config = {
       debug: true,
     },
   },
-  scene: [MainScene],
+  scene: [PlayerName, MainScene, GameOver],
 };
 
 new Phaser.Game(config);

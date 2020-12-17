@@ -19,4 +19,4 @@ const shootLaser = (scene) => {
 };
 
 
-export { shootLaser };
+export default shootLaser;
