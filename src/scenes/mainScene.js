@@ -8,6 +8,7 @@ import laser2 from '../assets/laser-round-gr.png';
 import { shootLaser } from '../helpers/shooting';
 import Enemies from '../entities/enemies';
 import Player from '../entities/player';
+import playerLaserCollider from '../helpers/playerlaser-collider';
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -36,6 +37,15 @@ class MainScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
     
     this.gun = 0;
+
+    this.score = 0;
+
+    this.scoreText = this.add.text(16, 16, this.score, { fontSize: '17px', fill: '#ffffff' });
+
+    this.physics.add.collider(this.playerLasers, 
+      this.enemies, 
+      playerLaserCollider, 
+      null, this);
     
   }
 
@@ -57,7 +67,7 @@ class MainScene extends Phaser.Scene {
      shootLaser(this);
     }
   }
-
+  
 }
 
 

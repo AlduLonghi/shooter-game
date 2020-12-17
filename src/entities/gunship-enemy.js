@@ -5,9 +5,9 @@ class GunShip extends Phaser.Physics.Arcade.Sprite {
         const coordX = Math.random() * 900;
         super(scene, coordX , 10, 'enemy2');
         this.scene.add.existing(this);
-        scene.physics.world.enableBody(this, 0);
         this.setScale(0.13);
-
+        this.type = 'Gunship';
+      
         this.shootTimer = this.scene.time.addEvent({
             delay: 1800,
             callback: () => { this.addEnemy() },
