@@ -6,7 +6,7 @@ import starfield from '../assets/starfield.png';
 import laser1 from '../assets/laser-org.png';
 import laser2 from '../assets/laser-round-gr.png';
 import { shootLaser } from '../helpers/shooting';
-import Enemies from '../helpers/enemies-creation';
+import Enemies from '../entities/enemies';
 import Player from '../entities/player';
 
 class MainScene extends Phaser.Scene {
@@ -27,9 +27,8 @@ class MainScene extends Phaser.Scene {
   create() {
     this.tileSprite = this.add.tileSprite(400, 300, 0, 0, 'starfield');
     
-    this.enemies = this.physics.add.group();
+    this.enemies = new Enemies(this);
     this.enemyLasers = this.physics.add.group();
-    this.enemiesCreation = new Enemies(this);
 
     this.gamePlayer = new Player(this, this.sys.canvas.width / 2, 700, 'player');
     this.playerLasers = this.physics.add.group();
