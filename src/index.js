@@ -3,6 +3,7 @@ import 'phaser';
 import MainScene from './scenes/mainScene';
 import GameOver from './scenes/gameOverScene';
 import PlayerName from './scenes/playerName';
+import Menu from './scenes/menu';
 
 const config = {
   type: Phaser.AUTO,
@@ -20,7 +21,7 @@ const config = {
       debug: true,
     },
   },
-  scene: [PlayerName, MainScene, GameOver],
+  scene: [PlayerName, Menu, MainScene, GameOver],
 };
 
 new Phaser.Game(config);
