@@ -4,14 +4,13 @@ import enemy2 from '../assets/enemy2.png';
 import enemy3 from '../assets/enemy3.png';
 import starfield from '../assets/starfield.png';
 import laser1 from '../assets/laser-org.png';
-import LaserGroup from '../objects/laser-group';
+import Laser from '../objects/laser';
 import { shootLaser } from '../helpers/shooting';
 import Enemies from '../entities/enemies';
 
 class MainScene extends Phaser.Scene {
   constructor() {
     super({ key: 'MainScene' });
-    console.log('Hello');
   }
 
   preload() {
@@ -25,20 +24,18 @@ class MainScene extends Phaser.Scene {
 
   create() {
     this.tileSprite = this.add.tileSprite(400, 300, 0, 0, 'starfield');
-    this.laserGroup = new LaserGroup(this, 'laser1');
 
     this.gamePlayer = this.physics.add.sprite(this.sys.canvas.width / 2, 700, 'player').setScale(0.15);
     this.gamePlayer.setCollideWorldBounds(true);
     this.gamePlayer.body.setAllowGravity(false);
-    
-    this.enemies1 = this.physics.add.group();
-    this.addEnemies1 = new Enemies(this, 'enemy1', this.enemies1);
 
-    this.enemies2 = this.physics.add.group();
-    this.addEnemies2 = new Enemies(this, 'enemy2', this.enemies2);
+    this.enemies = this.physics.add.group();
+
+    this.playerLasers = this.physics.add.group();
 
     this.cursors = this.input.keyboard.createCursorKeys();
     
+    this.gun = 0;
     
   }
 
@@ -56,7 +53,7 @@ class MainScene extends Phaser.Scene {
     else if (this.cursors.down.isDown){
       this.gamePlayer.y += 6;
     } 
-    else if (this.cursors.space.isDown) {
+    else if (this.cursors.space.isDown && this.gun == 0) {
      shootLaser(this);
     }
   }
