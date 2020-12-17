@@ -4,9 +4,8 @@ import enemy2 from '../assets/enemy2.png';
 import enemy3 from '../assets/enemy3.png';
 import starfield from '../assets/starfield.png';
 import laser1 from '../assets/laser-org.png';
-import Laser from '../objects/laser';
 import { shootLaser } from '../helpers/shooting';
-import Enemies from '../entities/enemies';
+import {enemiesCreation} from '../helpers/enemies-creation';
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -25,13 +24,14 @@ class MainScene extends Phaser.Scene {
   create() {
     this.tileSprite = this.add.tileSprite(400, 300, 0, 0, 'starfield');
 
+    this.enemies = this.physics.add.group();
+    enemiesCreation(this);
+     
+    this.playerLasers = this.physics.add.group();
+
     this.gamePlayer = this.physics.add.sprite(this.sys.canvas.width / 2, 700, 'player').setScale(0.15);
     this.gamePlayer.setCollideWorldBounds(true);
     this.gamePlayer.body.setAllowGravity(false);
-
-    this.enemies = this.physics.add.group();
-
-    this.playerLasers = this.physics.add.group();
 
     this.cursors = this.input.keyboard.createCursorKeys();
     

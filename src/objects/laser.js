@@ -3,6 +3,8 @@ class Laser extends Phaser.Physics.Arcade.Sprite {
       super(scene, x, y, imgKey);
       this.scene = scene;
       this.scene.add.existing(this);
+      this.scene.physics.world.enableBody(this, 0);
+      this.setData("isDead", false);
     }
   }
 
