@@ -8,7 +8,9 @@ import laser2 from '../assets/laser-round-gr.png';
 import { shootLaser } from '../helpers/shooting';
 import Enemies from '../entities/enemies';
 import Player from '../entities/player';
-import playerLaserCollider from '../helpers/playerlaser-collider';
+import playerLasersCollider from '../helpers/playerlasers-collider';
+import explosion from '../assets/sndExplosion0.wav';
+import gameMusic from '../assets/gameMusic.wav';
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -23,11 +25,17 @@ class MainScene extends Phaser.Scene {
     this.load.image('starfield', starfield);
     this.load.image('laser1', laser1);
     this.load.image('laser2', laser2);
+    this.load.audio('explosion', explosion);
+    this.load.audio('gameMusic', gameMusic);
   }
 
   create() {
     this.tileSprite = this.add.tileSprite(400, 300, 0, 0, 'starfield');
-    
+    this.explosion = this.sound.add('explosion');
+    this.gameMusic = this.sound.add('gameMusic');
+    this.gameMusic.loop = true;
+    this.gameMusic.play();
+
     this.enemies = new Enemies(this);
     this.enemyLasers = this.physics.add.group();
 
@@ -35,39 +43,37 @@ class MainScene extends Phaser.Scene {
     this.playerLasers = this.physics.add.group();
 
     this.cursors = this.input.keyboard.createCursorKeys();
-    
+
     this.gun = 0;
 
     this.score = 0;
 
-    this.scoreText = this.add.text(16, 16, this.score, { fontSize: '17px', fill: '#ffffff' });
+    this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '17px', fill: '#ffffff' });
 
-    this.physics.add.collider(this.playerLasers, 
-      this.enemies, 
-      playerLaserCollider, 
+    this.physics.add.collider(this.playerLasers,
+      this.enemies,
+      playerLasersCollider,
       null, this);
-    
+
+    this.physics.add.collider(this.gamePlayer,
+      this.enemyLasers);
   }
+
 
   update() {
     this.tileSprite.tilePositionY -= 3;
-    if (this.cursors.left.isDown){
+    if (this.cursors.left.isDown) {
       this.gamePlayer.x -= 8;
-    }
-    else if (this.cursors.right.isDown){
+    } else if (this.cursors.right.isDown) {
       this.gamePlayer.x += 8;
-    }
-    else if (this.cursors.up.isDown){
+    } else if (this.cursors.up.isDown) {
       this.gamePlayer.y -= 8;
-    }
-    else if (this.cursors.down.isDown){
+    } else if (this.cursors.down.isDown) {
       this.gamePlayer.y += 8;
-    } 
-    else if (this.cursors.space.isDown && this.gun == 0) {
-     shootLaser(this);
+    } else if (this.cursors.space.isDown && this.gun == 0) {
+      shootLaser(this);
     }
   }
-  
 }
 
 
