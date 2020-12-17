@@ -1,12 +1,8 @@
-import playerData from '../helpers/player-data';
+import playerData from '../constants/player-data';
 
 class PlayerName extends Phaser.Scene {
     constructor(){
         super({key: 'PlayerName'});
-    }
-
-    preload() {
-
     }
 
     create() {
