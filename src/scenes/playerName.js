@@ -1,8 +1,10 @@
 import playerData from '../constants/player-data';
+import resetPlayer from '../helpers/reset-player';
 
 class PlayerName extends Phaser.Scene {
     constructor(){
         super({key: 'PlayerName'});
+        resetPlayer();
     }
 
     create() {
