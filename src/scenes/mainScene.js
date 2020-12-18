@@ -12,7 +12,8 @@ import Player from '../entities/player';
 import playerLasersCollider from '../helpers/playerlasers-collider';
 import explosion from '../assets/sndExplosion0.wav';
 import gameMusic from '../assets/gameMusic.wav';
-import gameOverCollider from '../helpers/gameover-collider';
+import playerData from '../constants/player-data';
+
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -59,13 +60,13 @@ class MainScene extends Phaser.Scene {
 
     this.physics.add.collider(this.gamePlayer,
       this.enemyLasers,
-      gameOverCollider,
+      this.gameOverCollider,
       null,
       this);
 
     this.physics.add.collider(this.gamePlayer,
       this.enemies,
-      gameOverCollider,
+      this.gameOverCollider,
       null,
       this);
   }
@@ -103,6 +104,13 @@ class MainScene extends Phaser.Scene {
     this.playerLasers.add(laser);
     this.playerLasers.setVelocityY(-350);
   }
+
+  gameOverCollider() {
+    this.game.sound.stopAll();
+    playerData.score = this.score;
+    this.scene.start('GameOver');
+  }
+  
 }
 
 
