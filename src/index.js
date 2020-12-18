@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 import MainScene from './scenes/mainScene';
 import GameOver from './scenes/gameOverScene';
@@ -25,4 +25,4 @@ const config = {
   scene: [PlayerName, Menu, ScoresScene, MainScene, GameOver],
 };
 
-new Phaser.Game(config);
+window.game = new Phaser.Game(config);

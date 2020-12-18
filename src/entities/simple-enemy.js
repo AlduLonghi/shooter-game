@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 class SimpleEnemy extends Phaser.Physics.Arcade.Sprite {
   constructor(scene) {
     const coordX = Math.random() * 900;

@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import player from '../assets/player.png';
 import enemy1 from '../assets/enemy1.png';
 import enemy2 from '../assets/enemy2.png';
@@ -5,7 +6,7 @@ import enemy3 from '../assets/enemy3.png';
 import starfield from '../assets/starfield.png';
 import laser1 from '../assets/laser-org.png';
 import laser2 from '../assets/laser-round-gr.png';
-import shootLaser from '../helpers/shooting';
+import Laser from '../objects/laser';
 import Enemies from '../entities/enemies';
 import Player from '../entities/player';
 import playerLasersCollider from '../helpers/playerlasers-collider';
@@ -80,9 +81,27 @@ class MainScene extends Phaser.Scene {
       this.gamePlayer.y -= 8;
     } else if (this.cursors.down.isDown) {
       this.gamePlayer.y += 8;
-    } else if (this.cursors.space.isDown && this.gun == 0) {
-      shootLaser(this);
+    } else if (this.cursors.space.isDown && this.gun === 0) {
+      this.shootLaser();
     }
+  }
+
+  shootLaser() {
+    this.gun = 1;
+    this.time.addEvent({
+      delay: 200,
+      callback: () => { this.gun = 0; },
+      callbackScope: this,
+      loop: false,
+    });
+    const laser = new Laser(
+      this,
+      this.gamePlayer.x,
+      this.gamePlayer.y - 15,
+      'laser1',
+    );
+    this.playerLasers.add(laser);
+    this.playerLasers.setVelocityY(-350);
   }
 }
 

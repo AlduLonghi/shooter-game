@@ -1,4 +1,4 @@
 export default {
-    name: null,
-    score: 0,
-}
+  name: null,
+  score: 0,
+};

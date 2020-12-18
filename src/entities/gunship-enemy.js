@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import Laser from '../objects/laser';
 
 class GunShip extends Phaser.Physics.Arcade.Sprite {

@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 class Player extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y, imgKey) {
     super(scene, x, y, imgKey);

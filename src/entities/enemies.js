@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import GunShip from './gunship-enemy';
 import SimpleEnemy from './simple-enemy';
 
@@ -21,7 +22,7 @@ class Enemies extends Phaser.Physics.Arcade.Group {
 
   enemiesCreation() {
     this.scene.time.addEvent({
-      delay: 800,
+      delay: 1200,
       callback: () => { this.newEnemies(this.scene); },
       callbackScope: this.scene,
       loop: true,
