@@ -1,9 +1,8 @@
-const getScore = () => {
-    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/nFeS9gyeO4tJflNcgAJU/scores/', {
-    }).then(res => res.json())
-    .then(res => res.result.sort((a, b) => b.score - a.score))
-    .then(res => console.log(res))
-  .catch(error => console.error('Error:', error))
+async function getScore(){
+    const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/nFeS9gyeO4tJflNcgAJU/scores/', {});
+    const fetchResult = await request.json();
+    const result = fetchResult.result.sort((a, b) => b.score - a.score);
+    return result;
 }
 
 export default getScore;

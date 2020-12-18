@@ -1,10 +1,14 @@
 import playerData from '../constants/player-data';
 import resetPlayer from '../helpers/reset-player';
+import getScore from '../helpers/get-score';
 
 class PlayerName extends Phaser.Scene {
     constructor(){
         super({key: 'PlayerName'});
         resetPlayer();
+        getScore().then(res => {
+            this.highScores = res.splice(0, 5);
+        });
     }
 
     create() {
@@ -19,7 +23,7 @@ class PlayerName extends Phaser.Scene {
     submitBtn.onclick = () => {
         const name = document.querySelector('input').value;
         playerData.name = name;
-        this.scene.start('Menu');
+        this.scene.start('Menu', {scores: this.highScores});
       };
     }
 }
