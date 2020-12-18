@@ -1,5 +1,6 @@
 import highScore from '../assets/high-score.png';
 import playBtn from '../assets/playbtn.png';
+import getScore from '../helpers/get-score';
 
 class Menu extends Phaser.Scene {
     constructor() {
@@ -21,6 +22,7 @@ class Menu extends Phaser.Scene {
         this)
 
         this.score.setInteractive().on('pointerdown', function() {
+          getScore();
         })
     }
 }
