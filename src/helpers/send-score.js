@@ -1,16 +1,10 @@
+import axios from "axios";
+
  async function sendScore(name, score) {
-    const sendScore = {
-      user: name,
-      score,
-    };
-    const result = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/XIBOF92ECMhzw2Fzxen5/scores/', {
-      method: 'POST',
-      body: JSON.stringify(sendScore),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(res => res.data)
+    const result = await axios.post('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/XIBOF92ECMhzw2Fzxen5/scores/', { user: name, score })
+    .then(res => res.data)
     .catch(err => err.response.data);
+    console.log(result);
     return result;
   }
 

@@ -54,7 +54,7 @@ class MainScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerLasers,
       this.enemies,
-      (playerLaser, enemie) => { this.playerLaserCollider(playerLaser, enemie); },
+      (playerLaser, enemy) => { this.playerLaserCollider(playerLaser, enemy); },
       null, this);
 
     this.physics.add.collider(this.gamePlayer,

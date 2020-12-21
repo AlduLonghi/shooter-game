@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import backBtn from '../assets/backBtn.png'
+import backBtn from '../assets/backBtn.png';
 
 class ScoresScene extends Phaser.Scene {
   constructor() {
@@ -25,10 +25,11 @@ class ScoresScene extends Phaser.Scene {
     }
 
     this.btn = this.add.sprite(400, 670, 'backBtn').setScale(0.07);
-    this.btn.setInteractive().on('pointerdown', 
-    function(){ 
-      this.scene.switch('Menu');},
-    this);
+    this.btn.setInteractive().on('pointerdown',
+      function () {
+        this.scene.switch('Menu');
+      },
+      this);
   }
 }
 

@@ -23,7 +23,7 @@ class PlayerName extends Phaser.Scene {
     submitBtn.onclick = () => {
       const name = document.querySelector('input').value;
       if (validateName(name) === false) {
-        this.add.text(220, 450, 'Name too short or too long', { fontSize: '25px', fill: '#ffffff' })
+        this.add.text(220, 450, 'Name too short or too long', { fontSize: '25px', fill: '#ffffff' });
       } else {
         playerData.name = name;
         this.registry.set('score', this.highScores);
