@@ -83,7 +83,7 @@ The game is over when the player is shoot or touched by an enemy.
 
 2. Run:
 
-`npm run jest`
+`npm run test`
 
 ## Author 
 

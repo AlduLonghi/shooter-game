@@ -29,7 +29,7 @@ class GameOver extends Phaser.Scene {
     this.button = this.add.sprite(440, 400, 'buttons');
     this.button.setInteractive().on('pointerdown', function send() {
       if (this.fetched === true) {
-        location.reload();
+        window.location.reload();
       }
     },
     this);

@@ -104,7 +104,7 @@ class MainScene extends Phaser.Scene {
 
   gameOverCollider() {
     this.game.sound.stopAll();
-    this.registry.set('playerScore',this.score);
+    this.registry.set('playerScore', this.score);
     this.scene.start('GameOver');
   }
 
