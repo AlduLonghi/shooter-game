@@ -20,7 +20,6 @@ class Menu extends Phaser.Scene {
       this.scene.start('MainScene');
     },
     this);
-    console.log(this.children.getChildren());
 
     this.score.setInteractive().on('pointerdown', function startScene() {
       this.scene.start('ScoresScene');

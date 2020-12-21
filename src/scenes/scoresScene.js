@@ -26,7 +26,7 @@ class ScoresScene extends Phaser.Scene {
 
     this.btn = this.add.sprite(400, 670, 'backBtn').setScale(0.07);
     this.btn.setInteractive().on('pointerdown',
-      function () {
+      function changeScene() {
         this.scene.switch('Menu');
       },
       this);
