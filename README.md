@@ -55,6 +55,8 @@ The game is over when the player is shoot or touched by an enemy.
 
 `git clone https://github.com/AlduLonghi/shooter-game.git`
 
+`cd shooter-game`
+
 `npm install`
 
 3. Open index.html using a web server.
