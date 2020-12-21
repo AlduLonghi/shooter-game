@@ -11,8 +11,6 @@ import Enemies from '../entities/enemies';
 import Player from '../entities/player';
 import explosion from '../assets/sndExplosion0.wav';
 import gameMusic from '../assets/gameMusic.wav';
-import playerData from '../constants/player-data';
-
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -106,7 +104,7 @@ class MainScene extends Phaser.Scene {
 
   gameOverCollider() {
     this.game.sound.stopAll();
-    playerData.score = this.score;
+    this.registry.set('playerScore',this.score);
     this.scene.start('GameOver');
   }
 

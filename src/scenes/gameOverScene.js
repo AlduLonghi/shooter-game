@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 import starfield from '../assets/starfield.png';
 import gameOverSound from '../assets/gameOverSound.wav';
 import buttons from '../assets/buttons.png';
-import playerData from '../constants/player-data';
 import sendScore from '../helpers/send-score';
 
 class GameOver extends Phaser.Scene {
@@ -25,7 +24,7 @@ class GameOver extends Phaser.Scene {
     this.gameOverSnd.play();
     this.add.text(230, 230, 'GAME OVER', { fontSize: '75px', fill: '#ffffff' });
 
-    sendScore(playerData.name, playerData.score).then(() => { this.fetched = true; });
+    sendScore(this.registry.get('playerName'), this.registry.get('playerScore')).then(() => { this.fetched = true; });
 
     this.button = this.add.sprite(440, 400, 'buttons');
     this.button.setInteractive().on('pointerdown', function send() {

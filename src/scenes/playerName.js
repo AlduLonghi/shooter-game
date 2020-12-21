@@ -1,6 +1,4 @@
 import Phaser from 'phaser';
-import playerData from '../constants/player-data';
-import resetPlayer from '../helpers/reset-player';
 import getScore from '../helpers/get-score';
 import validateName from '../helpers/validate-name';
 
@@ -10,7 +8,6 @@ class PlayerName extends Phaser.Scene {
   }
 
   create() {
-    resetPlayer();
     getScore().then(res => {
       this.highScores = res;
     });
@@ -25,7 +22,7 @@ class PlayerName extends Phaser.Scene {
       if (validateName(name) === false) {
         this.add.text(220, 450, 'Name too short or too long', { fontSize: '25px', fill: '#ffffff' });
       } else {
-        playerData.name = name;
+        this.registry.set('playerName', name);
         this.registry.set('score', this.highScores);
         this.scene.start('Menu');
       }
