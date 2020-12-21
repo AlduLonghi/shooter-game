@@ -2,17 +2,18 @@ import Phaser from 'phaser';
 import playerData from '../constants/player-data';
 import resetPlayer from '../helpers/reset-player';
 import getScore from '../helpers/get-score';
+import validateName from '../helpers/validate-name';
 
 class PlayerName extends Phaser.Scene {
   constructor() {
     super({ key: 'PlayerName' });
+  }
+
+  create() {
     resetPlayer();
     getScore().then(res => {
       this.highScores = res;
     });
-  }
-
-  create() {
     this.input = this.add.dom(340, 380, 'input', 'background-color: white; width: 220px; height: 50px; font: 22px Arial');
     this.button = this.add.dom(530, 380, 'button', 'background-color: orange; width: 120px; height: 50px; font: 22px Arial', 'submit');
     this.text = this.add.text(120, 250, 'Please enter your name:', { fontSize: '50px', fill: '#ffffff' });
@@ -21,8 +22,13 @@ class PlayerName extends Phaser.Scene {
 
     submitBtn.onclick = () => {
       const name = document.querySelector('input').value;
-      playerData.name = name;
-      this.scene.start('Menu', { scores: this.highScores });
+      if (validateName(name) === false) {
+        this.add.text(220, 450, 'Name too short or too long', { fontSize: '25px', fill: '#ffffff' })
+      } else {
+        playerData.name = name;
+        this.registry.set('score', this.highScores);
+        this.scene.start('Menu');
+      }
     };
   }
 }

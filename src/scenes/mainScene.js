@@ -9,7 +9,6 @@ import laser2 from '../assets/laser-round-gr.png';
 import Laser from '../objects/laser';
 import Enemies from '../entities/enemies';
 import Player from '../entities/player';
-import playerLasersCollider from '../helpers/playerlasers-collider';
 import explosion from '../assets/sndExplosion0.wav';
 import gameMusic from '../assets/gameMusic.wav';
 import playerData from '../constants/player-data';
@@ -55,7 +54,7 @@ class MainScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerLasers,
       this.enemies,
-      playerLasersCollider,
+      (playerLaser, enemie) => { this.playerLaserCollider(playerLaser, enemie); },
       null, this);
 
     this.physics.add.collider(this.gamePlayer,
@@ -110,7 +109,17 @@ class MainScene extends Phaser.Scene {
     playerData.score = this.score;
     this.scene.start('GameOver');
   }
-  
+
+  playerLaserCollider(playerLaser, enemy) {
+    this.explosion.play();
+    playerLaser.destroy();
+    if (enemy.type === 'Gunship') {
+      enemy.shootTimer.remove(false);
+    }
+    enemy.destroy();
+    this.score += 30;
+    this.scoreText.setText(`Score: ${this.score}`);
+  }
 }
 
 

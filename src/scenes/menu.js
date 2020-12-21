@@ -7,10 +7,6 @@ class Menu extends Phaser.Scene {
     super({ key: 'Menu' });
   }
 
-  init(data) {
-    this.scores = data.scores;
-  }
-
   preload() {
     this.load.image('highScore', highScore);
     this.load.image('playBtn', playBtn);
@@ -24,10 +20,11 @@ class Menu extends Phaser.Scene {
       this.scene.start('MainScene');
     },
     this);
+    console.log(this.children.getChildren());
 
     this.score.setInteractive().on('pointerdown', function startScene() {
-      this.scene.start('ScoresScene', { scores: this.scores });
-    },
+        this.scene.start('ScoresScene');
+      },
     this);
   }
 }
