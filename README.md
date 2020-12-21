@@ -1,4 +1,4 @@
-# Shooter game capstone project
+# Space shooter capstone project
 
 [![linters](https://img.shields.io/badge/Linters-Passing-brightgreen)]()
 [![linters](https://img.shields.io/badge/Author-Aldana%20Longhi-blue)](https://github.com/AlduLonghi)
@@ -8,31 +8,42 @@
 
 ## What is this project about? 
 
-This project consisted on building a shooter game which you can play on the browser using Phaser 3 library (JavaScript). The aim of the project was to strengthen our knowledge on Object Oriented Programming by keeping our code clean and by making use of modules. I used Webpack as my bundler and I configured it to compilate code as well as different types of files (jpg, png, wav, etc.).
+This project consisted of building a shooter game that you can play on the browser using Phaser 3 library (JavaScript). The project aimed to strengthen our knowledge of Object-Oriented Programming by keeping our code clean and by making use of modules. I used Webpack as my bundler and I configured it to compile code as well as different types of files (jpg, png, wav, etc.).
 
 
 ## Built with: 
-
+- HTML5
 - [Phaser 3](https://phaser.io/phaser3)
+- Vanilla JavaScript
 
-**Features**
+### Tools
+
 - [npm](https://www.npmjs.com/)
 - [Jest](https://jestjs.io/es-ES/)
 - [ESlint](https://eslint.org/)
+- [Webpack](https://webpack.js.org/)
+
+**Instructions**
+
+The player can:
+- Move to the right, left, upwards, and downwards across the game's screen using arrow keys.
+- Shoot enemies by pressing the Space key.
+The enemies can: 
+- Shoot player
+
+The player's score will increase every time he destroys an enemy. 
+The game is over when the player is shoot or touched by an enemy.
+
 
 ## Live demo link
 
-[TwiTECH](https://nameless-escarpment-79956.herokuapp.com/)
+[Space shooter](https://stupefied-mestorf-54fccd.netlify.app/)
 
 ## How to use this app locally?
 
 **Pre-requisites**
 
-- Having [Ruby](https://www.ruby-lang.org/en/) installed on your machine.
-
-- Having [Rails](https://rubyonrails.org/) installed on your machine.
-
-- Having [Postgresql](https://www.postgresql.org/) installed.
+- Having [NodeJS](https://nodejs.org/en/) installed on your machine.
 
 ### Setting up instructions 
 
@@ -42,21 +53,15 @@ This project consisted on building a shooter game which you can play on the brow
 
 2. Run the following commands:
 
-- $ git clone https://github.com/AlduLonghi/twitter-capstone
+`git clone https://github.com/AlduLonghi/shooter-game.git`
 
-- $ cd twitter-capstone
+`npm install`
 
-- $ bundle install
-
-- $ rails db:create
-
-- $ rails db:migrate
-
-- $ rails server
+3. Open index.html using a web server.
 
 **In case you don't use a control version system**
 
-1. Go to [the repository](https://github.com/AlduLonghi/twitter-capstone)
+1. Go to [the repository](hhttps://github.com/AlduLonghi/shooter-game)
 
 2. Press the green button that says "Code".
 
@@ -68,11 +73,9 @@ This project consisted on building a shooter game which you can play on the brow
 
 6. Run:
 
-- $ rake db:create
+`npm install`
 
-- $ rake db:migrate
-
-- $ rails server
+7. Open index.html using a web server.
 
 ### Running tests
  
@@ -80,7 +83,7 @@ This project consisted on building a shooter game which you can play on the brow
 
 2. Run:
 
-- $ rspec
+`npm run jest`
 
 ## Author 
 
@@ -91,7 +94,7 @@ This project consisted on building a shooter game which you can play on the brow
 
 - Twitter: [@AbrilLonghi](https://twitter.com/AbrilLonghi)
 
-- Linkedin: [Aldana Abril Longhi](https://www.linkedin.com/in/aldana-abril-longhi-a842ba1a7/)
+- Linkedin: [Aldana Abril Longhi](www.linkedin.com/in/aldanalonghi)
 
 ## Contributing 
 
