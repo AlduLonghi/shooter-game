@@ -1,5 +1,7 @@
 # Space shooter capstone project
 
+This project consisted of building a shooter game that you can play on the browser using Phaser 3 library (JavaScript).
+
 [![linters](https://img.shields.io/badge/Linters-Passing-brightgreen)]()
 [![linters](https://img.shields.io/badge/Author-Aldana%20Longhi-blue)](https://github.com/AlduLonghi)
 
@@ -8,7 +10,7 @@
 
 ## What is this project about? 
 
-This project consisted of building a shooter game that you can play on the browser using Phaser 3 library (JavaScript). The project aimed to strengthen our knowledge of Object-Oriented Programming by keeping our code clean and by making use of modules. I used Webpack as my bundler and I configured it to compile code as well as different types of files (jpg, png, wav, etc.).
+ You are a space ship which is in the middle of a universe war and has one objective: to destroy as many enemies as he can. You would have to cross the universe with the help of your laser shooter, avoiding being hit by the enemies or their lasers. This is an endless war so you have the opportunity to fight as long as you keep yourself alive.
 
 
 ## Built with: 
