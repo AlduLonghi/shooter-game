@@ -10,7 +10,7 @@ This project consisted of building a shooter game that you can play on the brows
 
 ## What is this project about? 
 
- You are a space ship which is in the middle of a universe war and has one objective: to destroy as many enemies as he can. You would have to cross the universe with the help of your laser shooter, avoiding being hit by the enemies or their lasers. This is an endless war so you have the opportunity to fight as long as you keep yourself alive.
+ You are a space ship which is in the middle of a universe war and you have one objective: to destroy as many enemies as you can. You will have to cross the universe with the help of your laser shooter, avoiding being hit by the enemies or their lasers. This is an endless war so you have the opportunity to fight as long as you keep yourself alive.
 
 
 ## Built with: 
